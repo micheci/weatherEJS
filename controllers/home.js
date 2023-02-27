@@ -5,8 +5,9 @@ module.exports = {
         const fetch = require('node-fetch');
 
         let obj;
+        let data;
 
-        const url = 'https://dark-sky.p.rapidapi.com/69,-69?units=auto&lang=en';
+        const url = 'https://dark-sky.p.rapidapi.com/69,-69?exclude=minutely%2C%20hourly%2C%20daily%2C%20alerts%2C%20flags&units=auto&lang=en';
         
         const options = {
           method: 'GET',
@@ -17,16 +18,19 @@ module.exports = {
         };
         
         fetch(url, options)
-            .then(res => res.json())
-            .then(json =>obj=json)
-            .then(() => {
-                console.log(obj);
-               })
+        .then((res) => res.json())
+        .then(output => {
+            data = output;
+            obj=1;
+            console.log(data);
+            console.log(obj);
+        } 
+    )
             .catch(err => console.error('error:' + err));
 
 
         console.log("test")
-      res.render("index.ejs",{obj:obj});
+      res.render("index.ejs",{data:data,obj:obj});
     },
   };
   
