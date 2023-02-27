@@ -21,7 +21,15 @@
    <h1L>Weather</h1L>
    <!-- Hero -->
    <%=  obj %>
-   <%=  data || "hello" %>
+   <h4>Temp:<%=  data.currently.temperature || "hello" %></h4>
+   <p>Summary:<%=  data.currently.summary || "hello" %></p>
+   <p>Wind Speed:<%=  data.currently.windSpeed || "hello" %></p>
+
+   <!-- For loop over daily temps -->
+   <% for(let i=0;i<7;i++) { %>
+    <p><%=  data.daily.data[i].temperatureMax %></p>
+  <% } %>
+   <!-- <p>Monday :<%=  data.daily.data[0].temperatureMax || "hello" %></p> -->
 
 <form action="/login" method="POST">
     <div class="mb-3">

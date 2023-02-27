@@ -1,13 +1,13 @@
 const { listenerCount } = require("../models/User");
 
 module.exports = {
-    getIndex: (req, res) => {
+    getIndex:async (req, res) => {
         const fetch = require('node-fetch');
 
         let obj;
         let data;
 
-        const url = 'https://dark-sky.p.rapidapi.com/69,-69?exclude=minutely%2C%20hourly%2C%20daily%2C%20alerts%2C%20flags&units=auto&lang=en';
+        const url = 'https://dark-sky.p.rapidapi.com/69,-69?exclude=minutely%2C%20alerts%2C%20flags&units=auto&lang=en';
         
         const options = {
           method: 'GET',
@@ -17,11 +17,12 @@ module.exports = {
           }
         };
         
-        fetch(url, options)
+        await fetch(url, options)
         .then((res) => res.json())
         .then(output => {
             data = output;
             obj=1;
+            console.log(obj)
             console.log(data);
             console.log(obj);
         } 
@@ -30,6 +31,7 @@ module.exports = {
 
 
         console.log("test")
+        console.log(obj)
       res.render("index.ejs",{data:data,obj:obj});
     },
   };

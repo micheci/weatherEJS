@@ -23,8 +23,10 @@ require("./config/passport")(passport);
 //Connect To Database
 connectDB();
 app.use(cors())
+
 //Using EJS for views
-app.set("view engine", "ejs");
+app.set("view engine", "ejs",);
+
 
 //Static Folder
 app.use(express.static("public"));
