@@ -6,55 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/profile.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/index.css" type="text/css"/>
     <script src="https://kit.fontawesome.com/5152f77347.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body onload="rain();">
   <div class="container">
-    <nav class="navbar navbar-light  justify-content-between mb-5">
-      <a class="navbar-brand px-3  text-white ">Financial<div class="navBarText">Tracker</div></a>
-        <a href="/login" class="col-3 btn btnIndex"> Login</a>
-        <a href="/signup" class="col-3 btn btnIndex"> Signup</a>
-     
-    </nav>
+    <span id="flake0" style="cursor: default; user-select: none; position: absolute; font-family: inherit; font-size: 19px; color: rgb(221, 221, 221); z-index: 1000; left: 226px; top: 561px;">•</span>
 
-   <h1L>Weather</h1L>
+  
    <!-- Hero -->
-   <%=  obj %>
+   <div class="dataBox">
+  <h1L>Weather</h1>
    <h4>Temp:<%=  data.currently.temperature || "hello" %></h4>
    <p>Summary:<%=  data.currently.summary || "hello" %></p>
    <p>Wind Speed:<%=  data.currently.windSpeed || "hello" %></p>
-
+</div>
    <!-- For loop over daily temps -->
+   <div class="box">
    <% for(let i=0;i<7;i++) { %>
-    <p><%=  data.daily.data[i].temperatureMax %></p>
-  <% } %>
+    <div class="MaxMinTempsBox">
+      <p><%=  data.daily.data[i].temperatureMax %></p>
+      <p><%=  data.daily.data[i].temperatureMin %></p></div>
+   <% } %>
+    </div>
    <!-- <p>Monday :<%=  data.daily.data[0].temperatureMax || "hello" %></p> -->
 
-<form action="/login" method="POST">
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label"
-        >Email address</label
-      >
-      <input
-        type="email"
-        class="form-control"
-        id="exampleInputEmail1"
-        aria-describedby="emailHelp"
-        name="email"
-      />
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input
-        type="password"
-        class="form-control"
-        id="exampleInputPassword1"
-        name="password"
-      />
-    </div>
-    <button type="submit" class=" navbtn btn btn-primary mt-2">Sign in</button>
-</form>
+
 </div>
+<script src="js/snow.js"></script>
+<script src="js/rain.js"></script>
+
 </body>
 </html>

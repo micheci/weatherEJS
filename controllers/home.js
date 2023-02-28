@@ -21,17 +21,10 @@ module.exports = {
         .then((res) => res.json())
         .then(output => {
             data = output;
-            obj=1;
-            console.log(obj)
-            console.log(data);
-            console.log(obj);
+            console.log(data); 
         } 
     )
             .catch(err => console.error('error:' + err));
-
-
-        console.log("test")
-        console.log(obj)
       res.render("index.ejs",{data:data,obj:obj});
     },
   };
