@@ -12,6 +12,7 @@
 .box{
     display: flex;
     justify-content: center;
+    
 }
 .dataBox{
     display: flex;
@@ -19,14 +20,18 @@
     flex-direction: column;
     align-items: center;
 }
-body{background-color: blue;}
+body,canvas{background-color: #444444;
+    color: black;
+    height: 100vh;
+}
 
 .container{
     height: 100vh;
-    display: flex;
+  
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-top: -50rem;
 }
 
 hr{
@@ -42,3 +47,7 @@ hr{
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
+/* 
+.weekTemp{display: flex;
+justify-content: center;
+align-items: center;} */

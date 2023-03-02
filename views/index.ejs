@@ -9,32 +9,47 @@
     <link rel="stylesheet" href="/css/index.css" type="text/css"/>
     <script src="https://kit.fontawesome.com/5152f77347.js" crossorigin="anonymous"></script>
 </head>
-<body onload="rain();">
+<body  >
   <div class="container">
-    <span id="flake0" style="cursor: default; user-select: none; position: absolute; font-family: inherit; font-size: 19px; color: rgb(221, 221, 221); z-index: 1000; left: 226px; top: 561px;">•</span>
-
   
    <!-- Hero -->
-   <div class="dataBox">
-  <h1L>Weather</h1>
-   <h4>Temp:<%=  data.currently.temperature || "hello" %></h4>
+   <div class="dataBox mt-3">
+  <h1 class="text-white">Full Stack Weather App</h1>
+
+  <form action="/sendCords" method="POST">
+ 
+   <label for="lat">Lat</label>
+   <input type="number" id="lat" name="lat">
+
+   <label for="long">Long</label>
+   <input type="number" id="long" name="long">
+
+   <button type="submit" value="Upload">Submit</button>
+  </form>
+
+   <h4 >Temp:<p id="temp"><%=  data.currently.temperature || "hello" %></p></h4>
    <p>Summary:<%=  data.currently.summary || "hello" %></p>
    <p>Wind Speed:<%=  data.currently.windSpeed || "hello" %></p>
+   <p>Next 7 days</p>
 </div>
    <!-- For loop over daily temps -->
    <div class="box">
    <% for(let i=0;i<7;i++) { %>
     <div class="MaxMinTempsBox">
-      <p><%=  data.daily.data[i].temperatureMax %></p>
-      <p><%=  data.daily.data[i].temperatureMin %></p></div>
+      <p >Max: <%=  data.daily.data[i].temperatureMax %></p>
+      <p> Min: <%=  data.daily.data[i].temperatureMin %></p></div>
    <% } %>
     </div>
-   <!-- <p>Monday :<%=  data.daily.data[0].temperatureMax || "hello" %></p> -->
+
+    <p class="text-center text-white">This page sends user cordinates to backend which calls fetch on a api and return the result to 
+      the client </p>
 
 
 </div>
-<script src="js/snow.js"></script>
-<script src="js/rain.js"></script>
+<!-- <script src="js/snow.js"></script> -->
+<script src="js/fetchWeather.js"></script>
+<!-- <script src="js/rain.js"></script> -->
+
 
 </body>
 </html>
